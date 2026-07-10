@@ -21,7 +21,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
           sddm = pkgs.stdenv.mkDerivation {
             pname = "sddm";
-            version = "0.19.0";
+            version = "0.21.0";
 
             src = self;
 
