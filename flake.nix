@@ -52,6 +52,10 @@
             dontWrapQtApps = true;
 
             doCheck = true;
+            preCheck = ''
+              export QT_PLUGIN_PATH="${pkgs.qt5.qtbase}/lib/qt-5.15.19/plugins"
+              export QML2_IMPORT_PATH="${pkgs.qt5.qtdeclarative}/lib/qt-5.15.19/qml"
+            '';
             checkPhase = ''
               runHook preCheck
               ctest --output-on-failure
@@ -85,6 +89,9 @@
               ninja
               gdb
             ];
+
+            QT_PLUGIN_PATH = "${pkgs.qt5.qtbase}/lib/qt-5.15.19/plugins";
+            QML2_IMPORT_PATH = "${pkgs.qt5.qtdeclarative}/lib/qt-5.15.19/qml";
 
             shellHook = ''
               echo "SDDM dev shell — run 'nix develop' to enter"
